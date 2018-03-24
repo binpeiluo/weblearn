@@ -14,18 +14,20 @@ $(function() {
             $("div.productUnit").show();
             return;
         }
-        num = parseInt(num);
+        // parseInt 和 Number 的区别就是 parseInt会转化直至遇到非数字，而Number遇到非数字则返回Nan
+        tempNum=parseInt(num);
+        num = Number(num);
         if (isNaN(num) || num < 0){
-            num = 1;
+            num = tempNum;
             $(this).val(num);
         }
-        
         var begin = $("input.beginPrice").val()
         var end = $("input.endPrice").val();
-        if (!isNaN(begin) && !isNaN(endPrice)) {
+        if (!isNaN(begin) && !isNaN(end)) {
             $("div.productUnit").hide();
             $("div.productUnit").each(function() {
                 var price = $(this).attr("price");
+                price = Number(price);
                 if (price <= end && price >= begin) {
                     $(this).show();
                 }
