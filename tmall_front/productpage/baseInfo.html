@@ -7,6 +7,38 @@
     <script src="http://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
 </head>
 <script type="text/javascript">
+$(function(){
+    var stock=66;
+    $("input.productNumberSetting").keyup(function(){
+        var userInput=$(this).val();
+        userInput=parseInt(userInput);
+        if(isNaN(userInput)||userInput<0){
+            userInput=1;
+        }
+        if(userInput>stock){
+            userInput=stock
+        }
+        $(this).val(userInput);
+    });
+    $(".increaseNumber").click(function(){
+        var userInput=$("input.productNumberSetting").val();
+        userInput=parseInt(userInput);
+        userInput++;
+        if(userInput>stock){
+            userInput=stock;
+        }
+        $("input.productNumberSetting").val(userInput);
+    });
+    $(".decreaseNumber").click(function(){
+        var userInput=$("input.productNumberSetting").val();
+        userInput=parseInt(userInput);
+        userInput--;
+        if(userInput<0){
+            userInput=1;
+        }
+        $("input.productNumberSetting").val(userInput);
+    });
+});
 </script>
 <style type="text/css">
 body{

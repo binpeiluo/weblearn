@@ -7,6 +7,23 @@
     <script src="http://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
 </head>
 <script type="text/javascript">
+    $(function(){
+        $("img.smallImage").mouseenter(function(){
+            var bigImgUrl=$(this).attr("bigImgUrl");
+            $("img.bigImage").attr("src",bigImgUrl);
+        });
+        $("img.bigImage").load(function(){
+            $("img.smallImage").each(function(){
+                var bigImgUrl=$(this).attr("bigImgUrl");
+                img=new Image();
+                img.src=bigImgUrl;
+                img.onload=function(){
+                    console.log(bigImgUrl);
+                    $("div.img4Load").append($(img));
+                }
+            });
+        });
+    });
 </script>
 <style type="text/css">
 div.imgAndInfo{
@@ -41,13 +58,19 @@ div.imgAndInfo img.smallImage:hover{
         <div class="imgAndInfoFrame">
             <img src="http://how2j.cn/tmall/img/productSingle/8619.jpg" width="100px" class="bigImage">
             <div class="smallImageDiv">
-                <img src="http://how2j.cn/tmall/img/productSingle_small/8620.jpg" class="smallImage" width="56px">
-                <img src="http://how2j.cn/tmall/img/productSingle_small/8619.jpg" class="smallImage" width="56px">
-                <img src="http://how2j.cn/tmall/img/productSingle_small/8618.jpg" class="smallImage" width="56px">
-                <img src="http://how2j.cn/tmall/img/productSingle_small/8617.jpg" class="smallImage" width="56px">
-                <img src="http://how2j.cn/tmall/img/productSingle_small/8616.jpg" class="smallImage" width="56px">
+                <img src="http://how2j.cn/tmall/img/productSingle_small/8620.jpg" class="smallImage" width="56px"
+                     bigImgUrl="http://how2j.cn/tmall/img/productSingle/8620.jpg">
+                <img src="http://how2j.cn/tmall/img/productSingle_small/8619.jpg" class="smallImage" width="56px"
+                     bigImgUrl="http://how2j.cn/tmall/img/productSingle/8619.jpg">
+                <img src="http://how2j.cn/tmall/img/productSingle_small/8618.jpg" class="smallImage" width="56px"
+                     bigImgUrl="http://how2j.cn/tmall/img/productSingle/8618.jpg">
+                <img src="http://how2j.cn/tmall/img/productSingle_small/8617.jpg" class="smallImage" width="56px"
+                     bigImgUrl="http://how2j.cn/tmall/img/productSingle/8617.jpg">
+                <img src="http://how2j.cn/tmall/img/productSingle_small/8616.jpg" class="smallImage" width="56px"
+                     bigImgUrl="http://how2j.cn/tmall/img/productSingle/8616.jpg">
                 
             </div>
         </div>
+        <div class="img4Load hidden"></div>
     </div>
 </body>
