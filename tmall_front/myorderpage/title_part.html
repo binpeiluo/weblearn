@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="http://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+    <link href="http://how2j.cn/study/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <script src="http://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
+div.boughtDiv{
+    margin: 10px auto;
+    max-width: 1013px;
+}
+
+div.orderType div{
+    float: left;
+    border-bottom: 2px solid #e8e8e8;
+}
+div.orderType a{
+    display: inline-block;
+    border-right: 1px solid #e8e8e8;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    padding: 0px 20px;
+}
+div.orderType a.noRightBorder{
+    border-right: none !important;
+}
+div.orderTypeLastOne{
+    overflow: hidden;
+    float: none !important;
+    border-bottom: 2px solid #E8E8E8;
+    height:34px;
+}
+div.orderType a:hover{
+    color: #c40000;
+    text-decoration: none;
+}
+div.orderType div.selectedOrderType{
+    border-bottom: 2px solid #c40000;
+}
+div.orderType div.selectedOrderType a{
+    color: #c40000;
+}
+div.orderListTitle{
+    margin-top: 20px;
+}
+table.orderListTitleTable{
+    border: 1px solid #e8e8e8;
+    width: 100%;
+    margin: 20px 0px;
+    text-align: center;
+    background-color :#f5f5f5; 
+    font-size: 12px;
+}
+table.orderListTitleTable td{
+    padding: 12px 0px;
+}
+
+</style>
+<script type="text/javascript">
+</script>
+<!--
+    在含有float 属性的div 外层div 设置 border 不正常，这是因为 设置为 float后 ，坑位就让了出来
+    
+    orderTypeLastOne 没有设置宽度也能显示，是因为设置了 float 为 none 。但是为什么呢？ float 设置为 none 则自动设置了宽度？？？
+
+  -->
+<body>
+    <div class="boughtDiv">
+        <div class="orderType">
+            <div class="selectedOrderType"><a href="#no" orderStatus="all">所有订单</a></div>
+            <div><a href="#" orderStatus="waitPay">待付款</a></div>
+            <div><a href="#" orderStatus="waitDelivery">待发货</a></div>
+            <div><a href="#" orderStatus="waitConfirm">待收货</a></div>
+            <div><a class="noRightBorder" href="#" orderStatus="waitReview">待评价</a></div>
+            <div class="orderTypeLastOne"></div>
+        </div>
+        <div style="clear: both"></div>
+        <div class="orderListTitle">
+            <table class="orderListTitleTable">
+                <tbody>
+                    <tr>
+                        <td width="100px">宝贝</td>
+                        <td width="100px">单价</td>
+                        <td width="100px">数量</td>
+                        <td width="120px">实付款</td>
+                        <td width="100px">交易操作</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
